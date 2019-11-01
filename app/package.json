@@ -4,15 +4,17 @@
   "private": true,
   "homepage": "https://live.hellomouse.net/app/",
   "dependencies": {
-    "@types/jest": "24.0.21",
-    "@types/node": "12.12.3",
-    "@types/react": "16.9.11",
-    "@types/react-dom": "16.9.3",
+    "prop-types": "^15.7.2",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
+    "react-redux": "^7.1.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
-    "typescript": "3.6.4"
+    "redux": "^4.0.4",
+    "redux-logger": "^3.0.6",
+    "shaka-player": "^2.5.5",
+    "typescript": "3.6.4",
+    "uuid": "^3.3.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -36,9 +38,18 @@
     ]
   },
   "devDependencies": {
-    "@hellomouse/eslint-config-typescript": "^1.1.4",
+    "@hellomouse/eslint-config-typescript": "^1.1.7",
+    "@types/jest": "24.0.21",
+    "@types/node": "12.12.3",
+    "@types/react": "16.9.11",
+    "@types/react-dom": "16.9.3",
+    "@types/react-redux": "^7.1.5",
+    "@types/react-router-dom": "^5.1.1",
+    "@types/redux-logger": "^3.0.7",
+    "@types/uuid": "^3.4.6",
     "@typescript-eslint/eslint-plugin": "^2.6.0",
     "@typescript-eslint/parser": "^2.6.0",
-    "eslint-plugin-jsdoc": "^16.1.1"
+    "eslint-plugin-jsdoc": "^16.1.1",
+    "eslint-plugin-react": "^7.16.0"
   }
 }

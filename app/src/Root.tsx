@@ -4,10 +4,9 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
-  useParams
+  Link
 } from 'react-router-dom';
-import { InstanceProvider } from './redux-instance-react';
+import { NamespaceProvider } from './redux-instance-react';
 import CounterList from './CounterList';
 
 import { store } from './store';
@@ -18,6 +17,19 @@ const Root: React.FC = () => {
     <Provider store={store}>
       <Router>
         <Switch>
+          <Route path="/count">
+            <div>
+              <h2>Counters</h2>
+              <p><Link to="/">go back home</Link></p>
+              {/* but there's three of them */}
+              <NamespaceProvider type="CounterList">
+                <CounterList />
+              </NamespaceProvider>
+              <NamespaceProvider type="CounterList">
+                <CounterList />
+              </NamespaceProvider>
+            </div>
+          </Route>
           <Route path="/">
             <div>
               <h2>Home</h2>
@@ -25,20 +37,8 @@ const Root: React.FC = () => {
               <p>perhaps go to the <Link to="/count">counters</Link>?</p>
             </div>
           </Route>
-          <Route path="/count">
-            <div>
-              <h2>Counters</h2>
-              <p><Link to="/">go back home</Link></p>
-              {/* but there's two of them */}
-              <InstanceProvider type="CounterList">
-                {(namespace: symbol): React.ReactElement =>
-                  <CounterList namespace={namespace} />}
-              </InstanceProvider>
-              <InstanceProvider type="CounterList">
-                {(namespace: symbol): React.ReactElement =>
-                  <CounterList namespace={namespace} />}
-              </InstanceProvider>
-            </div>
+          <Route>
+            <div>404?</div>
           </Route>
         </Switch>
       </Router>
